@@ -1,17 +1,16 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, UseQueryResult } from '@tanstack/react-query'
+
+type UseFetcherProps = {
+  name: string
+  url: string
+  init?: any
+}
 
 const fetcher = async (url: string, init?: any) => {
   const response = await fetch(url, init)
   return response.json()
 }
 
-export const useFetcher = ({ name, url }: { name: string; url: string }) => {
-  const { data, error, isLoading, isError } = useQuery([name], () => fetcher(url))
-
-  return {
-    data,
-    error,
-    isLoading,
-    isError,
-  }
+export const useFetcher = <T>({ name, url, init }: UseFetcherProps): UseQueryResult<T> => {
+  return useQuery<T>([name], () => fetcher(url, init))
 }
