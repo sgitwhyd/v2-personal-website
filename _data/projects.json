@@ -1,0 +1,23 @@
+[
+  {
+    "projectTitle": "Project 1",
+    "projectDescription": "This is a project description",
+    "projectGithubLink": "project 1",
+    "projectImage": "https://picsum.photos/500/500",
+    "projectDemoLink": "https://www.google.com"
+  },
+  {
+    "projectTitle": "Project 2",
+    "projectDescription": "This is a project description",
+    "projectGithubLink": "project 1",
+    "projectImage": "https://picsum.photos/500/500",
+    "projectDemoLink": "https://www.google.com"
+  },
+  {
+    "projectTitle": "Project 3",
+    "projectDescription": "This is a project description",
+    "projectGithubLink": "project 1",
+    "projectImage": "https://picsum.photos/500/500",
+    "projectDemoLink": "https://www.google.com"
+  }
+]
