@@ -1,11 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SpotifyTopTrack } from '@/types/spotify'
 import { createMinutesFromMs } from '@/helpers/createMinutesFromMs'
-
-import { fetcher } from '@/libs/fetcher'
-import { useQuery } from '@tanstack/react-query'
+import { useFetcher } from '@/hooks'
 
 const TrackSkeleton = () => {
   return (
@@ -38,27 +36,20 @@ const Track = ({ albumImageUrl, artist, duration_ms, id, songUrl, title }: Spoti
 }
 
 export const TopTrack = () => {
-  const [topTracks, setTopTracks] = useState<SpotifyTopTrack[]>([])
-  const { isLoading, data } = useQuery({
-    queryKey: ['spotify-top-tracks'],
-    queryFn: () => fetcher('/api/spotify/top-tracks'),
+  const { isLoading, data } = useFetcher<{ tracks: SpotifyTopTrack[] }>({
+    name: 'spotify-top-tracks',
+    url: '/api/spotify/top-tracks',
   })
-
-  useEffect(() => {
-    if (!isLoading && data) {
-      setTopTracks(data.tracks)
-    }
-  }, [isLoading, data])
 
   return (
     <>
       {isLoading
         ? Array.from({ length: 5 }).map((_, index) => <TrackSkeleton key={index} />)
-        : topTracks.map((track, index: number) => {
+        : data?.tracks.map((track, index: number) => {
             return (
               <Fragment key={index}>
                 <Track key={track.id} {...track} />
-                {index !== topTracks.length - 1 && <hr key={index} className="my-5" />}
+                {index !== data.tracks.length - 1 && <hr key={index} className="my-5" />}
               </Fragment>
             )
           })}

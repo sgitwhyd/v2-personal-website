@@ -1,14 +1,14 @@
 import React from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { fetcher } from '@/libs/fetcher'
 import { SpotifyCurrentlyPlayingApiResponse } from '@/types/spotify'
 import clsx from 'clsx'
+import { useFetcher } from '@/hooks'
 
 export const CurrentlyPlaying = () => {
-  const { data } = useQuery<SpotifyCurrentlyPlayingApiResponse>({
-    queryKey: ['spotify-currently-playing'],
-    queryFn: () => fetcher('/api/spotify/currently-playing'),
+  const { data } = useFetcher<SpotifyCurrentlyPlayingApiResponse>({
+    name: 'spotify-currently-playing',
+    url: '/api/spotify/currently-playing',
   })
+
   return (
     <div
       className={clsx(

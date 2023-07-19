@@ -1,13 +1,14 @@
 import React from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { fetcher } from '@/libs/fetcher'
+import { useFetcher } from '@/hooks/useFetcher'
 import { Card } from './layouts/Card'
+import { GithubApiResponse } from '@/types/github'
 
 export const Repository = () => {
-  const { isLoading, data } = useQuery({
-    queryKey: ['github-data'],
-    queryFn: () => fetcher('/api/github/stats'),
+  const { isLoading, data } = useFetcher<GithubApiResponse>({
+    name: 'github-repo',
+    url: '/api/github/stats',
   })
+
   return (
     <Card
       count={isLoading ? '...' : data?.user.publicRepos}
