@@ -1,42 +1,71 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import clsx from 'clsx'
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import clsx from "clsx";
 
-import navMenus from '@/_data/nav-menu.json'
+import navMenus from "@/_data/nav-menu.json";
 
-const NavMenu = () => {
+const NavMenu = ({
+  handleOnClickNavLink,
+}: {
+  handleOnClickNavLink: () => void;
+}) => {
   return (
-    <div className="h-screen absolute w-full z-10">
-      {' '}
+    <div className=" relative z-50">
       <motion.ul
-        className={clsx(' bottom-0 flex flex-col justify-center w-full h-full text-center bg-slate-800 space-y-6')}
+        className={clsx(
+          "fixed inset-0 flex  min-h-screen flex-col justify-center space-y-6 overflow-hidden bg-brand-secondary text-center transition-[background-color] dark:bg-brand-main",
+        )}
         initial={{
-          y: 500,
+          x: -1000,
         }}
         animate={{
-          y: 0,
+          x: 0,
           transition: {
-            duration: 0.25,
-            delayChildren: 0.25,
-            staggerChildren: 0.2,
-            staggerDirection: 1,
+            ease: "easeInOut",
+            duration: 0.8,
+            when: "afterChildren",
           },
         }}
         exit={{
-          y: 0,
+          x: -1000,
+          transition: {
+            duration: 0.8,
+          },
         }}
       >
         {navMenus.map((nav, index) => (
-          <motion.li key={index} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Link href={nav.path} className="font-medium">
+          <motion.li
+            key={index}
+            initial={{ opacity: 0, translateX: -500 }}
+            animate={{
+              opacity: 1,
+              translateX: 0,
+              transition: {
+                delay: 0.8,
+                duration: ((index + 1) * 4) / 10,
+              },
+            }}
+            exit={{
+              opacity: 0,
+              translateX: -500,
+              transition: {
+                duration: ((index + 1) * 4) / 10,
+              },
+            }}
+          >
+            <Link
+              href={nav.path}
+              className="font-medium"
+              onClick={handleOnClickNavLink}
+            >
               {nav.name}
             </Link>
           </motion.li>
         ))}
       </motion.ul>
     </div>
-  )
-}
+  );
+};
 
-export default NavMenu
+export default NavMenu;
