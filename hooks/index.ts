@@ -1,2 +1,2 @@
-export * from './useFetcher'
-export * from './useTheme'
+export * from "./useFetcher";
+export * from "./useTheme";

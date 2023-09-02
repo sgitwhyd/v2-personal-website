@@ -1,23 +1,52 @@
 [
   {
-    "projectTitle": "Project 1",
-    "projectDescription": "This is a project description",
-    "projectGithubLink": "project 1",
-    "projectImage": "https://picsum.photos/500/500",
-    "projectDemoLink": "https://www.google.com"
+    "title": "Showcase Car Website",
+    "image": "https://i.ibb.co/CPQKnxD/screenshot-nimbusweb-me-2023-09-01-15-26-46.png",
+    "githubLink": "https://github.com/sgitwhyd/showcase-car.git",
+    "demoLink": "https://showcase-car-five.vercel.app/",
+    "description": "Website that provides information about cars. created using nextjs and headlessui "
   },
   {
-    "projectTitle": "Project 2",
-    "projectDescription": "This is a project description",
-    "projectGithubLink": "project 1",
-    "projectImage": "https://picsum.photos/500/500",
-    "projectDemoLink": "https://www.google.com"
+    "title": "Crown Clothing",
+    "image": "https://i.ibb.co/m0m9Rpp/crwn-cloth.png",
+    "githubLink": "https://github.com/sgitwhyd/crwn-clothing.git",
+    "demoLink": "https://cloth-crwn.netlify.app",
+    "description": "a website selling clothes that I made to learn react, redux, firebase & strapi"
   },
   {
-    "projectTitle": "Project 3",
-    "projectDescription": "This is a project description",
-    "projectGithubLink": "project 1",
-    "projectImage": "https://picsum.photos/500/500",
-    "projectDemoLink": "https://www.google.com"
+    "title": "Mejeng Project",
+    "image": "https://i.ibb.co/MNNFJwf/Picture1.png",
+    "githubLink": "hhttps://github.com/sgitwhyd/MejengProject.git",
+    "demoLink": "",
+    "description": "A website that is like social media for designers. built using nextjs & tailwind"
+  },
+  {
+    "title": "Digipack",
+    "image": "https://i.ibb.co/MCWYfVM/digipack.png",
+    "githubLink": "https://github.com/sgitwhyd/digipack-final.git",
+    "demoLink": "https://digipack-final.netlify.app",
+    "description": "Digipack for any packaging needs. made with html & bootstrap that the client requested from freelance"
+  },
+  {
+    "title": "Game Store Website",
+    "image": "https://i.ibb.co/LhJNH5M/gamepay.png",
+    "githubLink": "https://github.com/sgitwhyd/gamepay-native.git",
+    "demoLink": "https://paygame.netlify.app/",
+    "description": "Result of slicing from figma design, I made this for my client from fastwork.id"
+  },
+  {
+    "title": "Notes",
+    "image": "https://i.ibb.co/Smndng4/notes.png",
+    "githubLink": "https://github.com/sgitwhyd/react-notes-app.git",
+    "demoLink": "https://notes-app-sigit.netlify.app",
+    "description": "The noted application is made using react js which I made for my final assignment in the class 'Belajar Membuat Aplikasi Web dengan React'"
+  },
+
+  {
+    "title": "RestoKu Apps",
+    "image": "https://i.ibb.co/G7NR8V4/restoku.png",
+    "githubLink": "https://github.com/sgitwhyd/Restoku-MFWDE.git",
+    "demoLink": "https://restoku-mfwde.vercel.app/",
+    "description": "Catalogue of food and beverage menus that I made for the final project of the web programming course"
   }
 ]

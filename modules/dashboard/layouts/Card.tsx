@@ -1,29 +1,32 @@
-import React from 'react'
-import Link from 'next/link'
-import clsx from 'clsx'
-import { FiExternalLink } from 'react-icons/fi'
+import React from "react";
+import Link from "next/link";
+import clsx from "clsx";
+import { FiExternalLink } from "react-icons/fi";
 
 type CardProps = {
-  title: string
-  className?: string
-  link: string
-  count: any
-}
+  title: string;
+  className?: string;
+  link: string;
+  count: any;
+};
 
 export const Card = ({ title, className, link, count }: CardProps) => {
   return (
     <div
       className={clsx(
-        'bg-brand-aqua relative rounded-2xl p-4 h-[100px] text-black transform ease-in duration-[0.4s] border-4 border-solid border-brand-midnight-blue shadow-projectCard',
-
+        "relative h-[100px] transform rounded-2xl border-4 border-solid border-brand-midnight-blue bg-brand-aqua p-4 text-black shadow-projectCard duration-[0.4s] ease-in",
         className,
-        'dark:bg-brand-cream'
+        "dark:bg-brand-cream",
       )}
     >
-      <Link href={link} className="flex items-center font-semibold" target="_blank">
+      <Link
+        href={link}
+        className=" flex w-fit items-center font-semibold transition-all hover:-translate-y-1"
+        target="_blank"
+      >
         {title} <FiExternalLink className="ml-2" />
       </Link>
-      <p className="text-2xl mt-3 font-bold font-secondary">{count}</p>
+      <p className="mt-3 font-secondary text-2xl font-bold">{count}</p>
     </div>
-  )
-}
+  );
+};

@@ -1,64 +1,61 @@
-import React from 'react'
-import Image from 'next/image'
+import Image from "next/image";
+import React from "react";
+import Link from "next/link";
+import { useMedia } from "react-use";
+import { BsArrowRight } from "react-icons/bs";
 
-type skillsType = {
-  language: string[]
-  frontend: string[]
-  backend: string[]
-} & Record<string, string[]>
-
-const skills: skillsType = {
-  language: ['JavaScript', 'TypeScript', 'PHP'],
-  frontend: ['React', 'Next.js', 'Tailwind CSS', 'Redux', 'Laravel'],
-  backend: ['Node.js', 'Express.js', 'MySQL'],
-}
+import projectsData from "@/_data/projects.json";
+import { profile } from "@/constants/site";
 
 export const Hero = () => {
+  const isWide = useMedia("(min-width: 1024px)", true);
+  const { name, description } = profile;
   return (
-    <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:h-[650px] items-center gap-10">
-        <div className="w-full">
-          <div
-            className="relative hidden md:block"
-            style={{
-              boxShadow: '10px 10px 0px var(--accent-2)',
-              transform: `rotate(-2deg)`,
-            }}
-          >
-            <div className="absolute w-3 h-3 bg-brand-cream z-10 -top-1 -left-1 border-2 border-brand-midnight-blue  dark:bg-brand-aqua"></div>
-            <div className="absolute w-3 h-3 bg-brand-cream z-10 -top-1 -right-1 border-2 border-brand-midnight-blue  dark:bg-brand-aqua"></div>
-            <div className="absolute w-3 h-3 bg-brand-cream z-10 -bottom-1 -left-1 border-2 border-brand-midnight-blue  dark:bg-brand-aqua"></div>
-            <div className="absolute w-3 h-3 bg-brand-cream z-10 -bottom-1 -right-1 border-2 border-brand-midnight-blue  dark:bg-brand-aqua"></div>
-            <div className="aspect-[1.48/1] w-full">
-              <Image alt="Sigit Wahyudi" src="/assets/hero.jpg" fill className="border-4 border-black object-cover" />
-            </div>
-          </div>
-        </div>
+    <>
+      <div className="flex items-center">
         <div className="flex flex-col items-start justify-between">
-          <h1 className="text-3xl md:text-7xl font-semibold mb-5">Sigit Wahyudi</h1>
-          <p className="text-md md:text-xl">
-            Software developer who focuses on web development and in the javascript environment
+          <h1 className="mb-2 text-4xl font-semibold md:mb-5 md:flex md:text-5xl">
+            {name}{" "}
+          </h1>
+          <p className="font-secondary text-xl font-normal tracking-wide md:text-2xl">
+            {description}
           </p>
         </div>
       </div>
-      <section id="skills" className="mt-5 md:mt-0">
-        <h1 className="text-3xl font-bold">Skills</h1>
+
+      <section id="latest__project" className="mt-5">
+        <h1 className="text-3xl font-bold">Latest Project</h1>
         <hr className="my-5" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {Object.keys(skills).map((key, index) => (
-            <div key={index} className="flex flex-col items-start p-5 border-2 rounded-lg">
-              <h2 className="text-3xl font-bold">{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
-              <ul className="list-outside mt-3 space-y-2">
-                {skills[key].map((skill: string, index: number) => (
-                  <li key={index} className="text-xl">
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+        <div className="grid  w-full grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {projectsData.slice(0, isWide ? 3 : 4).map((item, idx) => (
+            <div
+              key={idx}
+              className="transition-[ transfrom, border-color]  overflow-hidden rounded-md border-2 border-transparent duration-300 hover:-translate-y-1 hover:border-brand-cream"
+            >
+              <Image
+                src={item.image}
+                alt="project image"
+                width={640}
+                height={360}
+                className="max-h-32 object-cover"
+              />
+              <div className="flex flex-col p-4">
+                <h1 className="my-3 font-semibold xl:text-2xl">{item.title}</h1>
+                <p className="text-gray-700 dark:text-gray-400">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
+        <Link
+          href="/projects"
+          className="mt-5 flex items-center justify-end gap-5 text-xl font-semibold"
+        >
+          View All Projects
+          <BsArrowRight size={24} />
+        </Link>
       </section>
-    </div>
-  )
-}
+    </>
+  );
+};

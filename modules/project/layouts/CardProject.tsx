@@ -1,54 +1,44 @@
-import React from 'react'
-import Image from 'next/image'
-import clsx from 'clsx'
-import { BsGithub } from 'react-icons/bs'
-import Link from 'next/link'
-import { ProjectType } from '@/types/project'
-import { useRouter } from 'next/navigation'
+import React from "react";
+import Image from "next/image";
+import { BsGithub } from "react-icons/bs";
+import Link from "next/link";
+import { ProjectType } from "@/types/";
 
 export const CardProject = ({
-  projectTitle,
-  projectDescription,
-  projectDemoLink,
-  projectGithubLink,
-  projectImage,
+  title,
+  description,
+  demoLink,
+  githubLink,
+  image,
 }: ProjectType) => {
-  const router = useRouter()
-
-  const handleDemoLink = () => router.push(projectDemoLink)
-
   return (
-    <div
-      className={clsx(
-        'h-fit text-white bg-brand-aqua transition-[background-color] duration-300 border-brand-midnight-blue shadow-projectCard border-4 border-solid overflow-hidden',
-        ' dark:bg-brand-cream  rounded-2xl  dark:border-brand-midnight-blue'
-      )}
-    >
-      <div className="relative w-full h-72 overflow-hidden aspect-square">
-        <Image
-          src={projectImage}
-          fill={true}
-          sizes="100vw"
-          alt={`${projectTitle} - image`}
-          className="object-cover"
-          priority
-        />
-      </div>
-      <div className="p-3 flex flex-col justify-between h-full max-h-[200px] text-brand-midnight-blue">
-        <div className=" inline-flex items-center justify-between">
-          <h1 className="text-2xl font-bold">{projectTitle}</h1>
-          <Link href={projectGithubLink} aria-label={projectTitle} target="_blank">
-            <BsGithub className="inline-block ml-2 text-2xl" />
+    <div className="flex flex-col overflow-hidden rounded-2xl border-2 border-black  bg-transparent text-black transition-all duration-300 hover:-translate-y-1 hover:shadow-projectCard  dark:text-white">
+      <Image
+        src={image}
+        width={1280}
+        height={720}
+        alt={`${title} - image`}
+        className="object-contain"
+        priority
+      />
+
+      <div className="flex h-full flex-col justify-between px-4 pb-4 pt-2 sm:px-6 sm:pb-6 sm:pt-3">
+        <div className="flex items-center justify-between space-y-2">
+          <h1 className="text-xl font-bold">{title}</h1>
+          <Link href={githubLink} aria-label={title} target="_blank">
+            <BsGithub className="ml-2 inline-block text-2xl" />
           </Link>
         </div>
-        <p className="font-medium py-2 font-secondary">{projectDescription}</p>
-        <button
-          className="inline-flex items-center ml-auto transition-[background-color] duration-300 text-lg font-bold bg-brand-cream dark:bg-brand-aqua w-fit py-2 px-8 border-2 border-solid border-brand-midnight-blue"
-          onClick={handleDemoLink}
+        <p className="mt-2 font-secondary text-lg font-medium">{description}</p>
+
+        <Link
+          className="ml-auto mt-3 inline-flex w-fit items-center border-2 border-solid border-brand-midnight-blue bg-brand-cream  px-8 py-2 text-lg font-bold text-black transition-[background-color] duration-300"
+          href={demoLink}
+          target="_blank"
         >
           Demo
-        </button>
+        </Link>
       </div>
     </div>
-  )
-}
+  );
+};

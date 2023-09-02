@@ -1,0 +1,32 @@
+[
+  {
+    "company": "Fastwork Id",
+    "company_image": "https://picsum.photos/500/500",
+    "title": "Freelance UI Engineer",
+    "location": "Surakarta",
+    "dates": "2020 - Present",
+    "description": "I work independently based on requests from clients and start making UI according to the agreed design",
+    "responsibilities": [
+      " Developed HTML & CSS code for web-based applications based on designs provided by clients.",
+      "Proficient in translating design concepts into interactive and user-friendly web interfaces.",
+      "Extensive experience collaborating with a diverse range of clients and ensuring their needs and expectations are met with close attention to detail.",
+      "Successfully served 10 clients by providing high-quality"
+    ]
+  },
+  {
+    "company": "SOC Media Agency",
+    "company_image": "https://picsum.photos/500/500",
+    "title": "Fullstack Developer Intern",
+    "location": "Surakarta",
+    "dates": "Feb 2023 - May 2023",
+    "description": "I work in the SOC Media Agency internship team. especially in the software house department. I focus on the front end and work on the backend if requested",
+    "responsibilities": [
+      " Contribute to internal company projects",
+      "Managed intership project with notion and monitor pull or merge request",
+      "Collaborated with a group of interns to develop a web application named Mejeng.",
+      "Developed comment, like, and views feature in backend",
+      "Gained valuable insights into teamwork and the development workflow from inception to production.",
+      "Successfully completed the internship with a grade of 90"
+    ]
+  }
+]

@@ -1,24 +1,24 @@
-import type { NextApiHandler } from 'next'
-import { getTopTracks } from '@/libs/spotify'
-import { SpotifyTopTrack, SpotifyTrack } from '@/types/spotify'
+import type { NextApiHandler } from "next";
+import { getTopTracks } from "@/libs/spotify";
+import { SpotifyTopTrack, SpotifyTrack } from "@/types";
 
 const handler: NextApiHandler = async (req, res) => {
-  if (req.method === 'GET') {
-    const response = await getTopTracks()
-    const data = await response.json()
+  if (req.method === "GET") {
+    const response = await getTopTracks();
+    const data = await response.json();
 
-    const { items } = data
+    const { items } = data;
 
     const tracks: SpotifyTopTrack[] = items.map((track: SpotifyTrack) => ({
       albumImageUrl: track.album.images[0].url,
-      artist: track.artists.map((_artist: any) => _artist.name).join(', '),
+      artist: track.artists.map((_artist: any) => _artist.name).join(", "),
       songUrl: track.external_urls.spotify,
       title: track.name,
       id: track.id,
       duration_ms: track.duration_ms,
-    }))
+    }));
 
-    return res.status(200).json({ tracks })
+    return res.status(200).json({ tracks });
 
     // this code to get refresh token
     // if (!req.query.code) {
@@ -55,6 +55,6 @@ const handler: NextApiHandler = async (req, res) => {
     //   return res.status(200).json({ data })
     // }
   }
-}
+};
 
-export default handler
+export default handler;

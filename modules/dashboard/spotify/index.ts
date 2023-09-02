@@ -1,2 +1,2 @@
-export * from './TopTracks'
-export * from './CurrentlyPlaying'
+export * from "./TopTracks";
+export * from "./CurrentlyPlaying";
