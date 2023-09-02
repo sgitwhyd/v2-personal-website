@@ -1,8 +1,8 @@
 # Personal Website v2
 
-
 ![Showcase Rent Car](https://i.ibb.co/C2zS03t/portofolio-new-alpha-vercel-app.png)
 
+[The old personal portfolio is still available and can be accessed here](v1-sigitwahyu.vercel.app)
 
 ## Technologies
 
