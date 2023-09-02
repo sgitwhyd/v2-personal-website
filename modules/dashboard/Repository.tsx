@@ -1,7 +1,7 @@
 import React from "react";
 import { useFetcher } from "@/hooks/useFetcher";
 import { Card } from "./layouts/Card";
-import { GithubApiResponse } from "@/types/github";
+import { GithubApiResponse } from "@/types";
 
 export const Repository = () => {
   const { isLoading, data } = useFetcher<GithubApiResponse>({

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "./layouts/Card";
 import { useFetcher } from "@/hooks/useFetcher";
-import { WakatimeApiResponse } from "@/types/wakatime";
+import { WakatimeApiResponse } from "@/types";
 
 export const Coding = () => {
   const { isLoading, data } = useFetcher<WakatimeApiResponse>({
