@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['i.scdn.co', 'picsum.photos', 'studentumsacid-my.sharepoint.com'],
+    domains: ["i.ibb.co"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
