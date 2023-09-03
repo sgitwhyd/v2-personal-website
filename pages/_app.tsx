@@ -9,6 +9,7 @@ import Footer from "@/components/layouts/footer";
 import { ThemeProvider } from "next-themes";
 import defaultSeoConfig from "@/configs/next-seo";
 import { DefaultSeo } from "next-seo";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -18,6 +19,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <ReactQueryDevtools />
         <ThemeProvider attribute="class">
           <DefaultSeo {...defaultSeoConfig} />
+          <Analytics />
           <RootContainer>
             <Navbar />
             <Component {...pageProps} />
