@@ -5,66 +5,63 @@ import clsx from "clsx";
 
 import navMenus from "@/_data/nav-menu.json";
 
+const containerVariants = {
+  hidden: {
+    x: -768,
+    transition: {
+      duration: 0.25,
+    },
+  },
+  show: {
+    x: 0,
+    transition: {
+      duration: 0.25,
+      delayChildren: 0.25,
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    },
+  },
+};
+
+const linkVariants = {
+  hidden: {
+    translateX: -248,
+    opacity: 0,
+  },
+  show: {
+    translateX: 0,
+    opacity: 1,
+  },
+};
+
 const NavMenu = ({
   handleOnClickNavLink,
 }: {
   handleOnClickNavLink: () => void;
 }) => {
   return (
-    <div className=" relative z-50">
-      <motion.ul
-        className={clsx(
-          "fixed inset-0 flex  min-h-screen flex-col justify-center space-y-6 overflow-hidden bg-brand-secondary text-center transition-[background-color] dark:bg-brand-main",
-        )}
-        initial={{
-          x: -1000,
-        }}
-        animate={{
-          x: 0,
-          transition: {
-            ease: "easeInOut",
-            duration: 0.8,
-            when: "afterChildren",
-          },
-        }}
-        exit={{
-          x: -1000,
-          transition: {
-            duration: 0.8,
-          },
-        }}
-      >
-        {navMenus.map((nav, index) => (
-          <motion.li
-            key={index}
-            initial={{ opacity: 0, translateX: -500 }}
-            animate={{
-              opacity: 1,
-              translateX: 0,
-              transition: {
-                delay: 0.8,
-                duration: ((index + 1) * 4) / 10,
-              },
-            }}
-            exit={{
-              opacity: 0,
-              translateX: -500,
-              transition: {
-                duration: ((index + 1) * 4) / 10,
-              },
-            }}
+    <motion.ul
+      className={clsx(
+        "fixed inset-0 flex min-h-screen  min-w-full flex-col justify-center space-y-6 overflow-hidden bg-brand-secondary text-center transition-[background-color] duration-300 dark:bg-brand-main",
+        "z-50",
+      )}
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+    >
+      {navMenus.map((nav, index) => (
+        <motion.li key={index} variants={linkVariants}>
+          <Link
+            href={nav.path}
+            className="font-medium"
+            onClick={handleOnClickNavLink}
           >
-            <Link
-              href={nav.path}
-              className="font-medium"
-              onClick={handleOnClickNavLink}
-            >
-              {nav.name}
-            </Link>
-          </motion.li>
-        ))}
-      </motion.ul>
-    </div>
+            {nav.name}
+          </Link>
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 };
 
