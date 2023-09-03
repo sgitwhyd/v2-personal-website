@@ -13,17 +13,30 @@ const pageProps = {
   description: `${profile.description}`,
 };
 
-const skillVariant = {
+const containerSkillVariants = {
   initial: {
     opacity: 0,
-    translateX: -100,
-  },
-  animate: {
-    opacity: 1,
-    translateX: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.25,
     },
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+      delayChildren: 0.25,
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    },
+  },
+};
+
+const skillVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
   },
 };
 
@@ -36,12 +49,15 @@ const About = () => {
       <section id="skills" className="mt-10">
         <h1 className=" text-3xl font-bold">Skills</h1>
         <hr className="my-5" />
-        <div className="grid grid-cols-3 justify-items-center gap-y-5 sm:grid-cols-5 md:grid-cols-10">
+        <motion.div
+          variants={containerSkillVariants}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-3 justify-items-center gap-y-5 sm:grid-cols-5 md:grid-cols-10"
+        >
           {skills.map((skill, index) => (
             <motion.div
-              variants={skillVariant}
-              initial="initial"
-              animate="animate"
+              variants={skillVariants}
               key={skill.name}
               className="w-10"
             >
@@ -56,7 +72,7 @@ const About = () => {
               </Tooltip>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
       <section id="getInTouch" className="mt-10">
         <h1 className="text-xl font-bold sm:text-3xl">Get In Touch</h1>
