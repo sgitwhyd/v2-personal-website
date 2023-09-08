@@ -23,6 +23,14 @@ export const Hero = () => {
         </div>
       </div>
 
+      <Link
+        href={profile.resumeLink}
+        target="_blank"
+        className="mt-3 w-fit rounded-md bg-brand-aqua px-4 py-2 text-lg font-semibold tracking-wide text-black transition-[background-color] dark:bg-brand-cream"
+      >
+        Download CV
+      </Link>
+
       <section id="latest__project" className="mt-5">
         <h1 className="text-3xl font-bold">Latest Project</h1>
         <hr className="my-5" />

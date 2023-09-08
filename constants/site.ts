@@ -1,4 +1,6 @@
 export const profile = {
+  resumeLink:
+    "https://drive.google.com/file/d/1ZlJYrl-sPjz5vY_VBXkJf-YunSjuz2HH/view?usp=sharing",
   name: "Sigit Wahyudi",
   description:
     "Software developer who focused on web development and javascript environments.",
