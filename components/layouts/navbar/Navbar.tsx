@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import useTheme from "@/hooks/useTheme";
+import { motion } from "framer-motion";
 
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 
@@ -39,14 +40,18 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="md:shadow-sm">
-      <nav
+    <header
+      className={clsx("md:shadow-sm", {
+        "sticky top-0 z-50 bg-brand-secondary dark:bg-brand-main": isWide,
+      })}
+    >
+      <motion.nav
         className={clsx(
-          "bg-brand-light dark:bg-brand-dark mx-auto flex w-full max-w-5xl items-center justify-between p-4 transition-[background-color] duration-300 sm:px-9",
-          "bottom-0 z-[99] w-full bg-brand-secondary p-4 dark:bg-brand-main md:sticky md:top-0",
+          "bg-brand-light mx-auto flex w-full max-w-5xl items-center justify-between p-4 sm:px-9",
+          "z-[99] w-full  p-4 ",
           {
-            absolute: isWide,
-            fixed: !isWide,
+            "fixed bottom-0 z-50 bg-brand-secondary dark:bg-brand-main":
+              !isWide,
           },
         )}
       >
@@ -84,7 +89,7 @@ const Navbar = () => {
             {showMenu ? <FiX /> : <FiMenu />}
           </IconButton>
         </div>
-      </nav>
+      </motion.nav>
       <AnimatePresence>
         {showMenu && !isWide && (
           <NavMenu handleOnClickNavLink={handleClickNavLink} />
