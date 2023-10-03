@@ -1,5 +1,19 @@
 [
   {
+    "title": "Quizzy | Simple Quizz App",
+    "image": "https://i.ibb.co/VLG7xH9/quiz-f.jpg",
+    "githubLink": "hhttps://github.com/sgitwhyd/quizzy-app",
+    "demoLink": "https://sigit-quizzy.netlify.app/",
+    "description": "Simple Quizz App, Build with ReactJs, Vite, OpenDb API"
+  },
+  {
+    "title": "MeChat | Realtime Chat App",
+    "image": "https://i.ibb.co/QPhrzmh/mechat-all.jpg",
+    "githubLink": "https://github.com/sgitwhyd/mechat-app",
+    "demoLink": "https://mechat-app.vercel.app/",
+    "description": "Realtime chat with other people in room, Build with NextJs, Tailwind, Pusher, Express"
+  },
+  {
     "title": "Showcase Car Website",
     "image": "https://i.ibb.co/CPQKnxD/screenshot-nimbusweb-me-2023-09-01-15-26-46.png",
     "githubLink": "https://github.com/sgitwhyd/showcase-car.git",
